@@ -1,0 +1,47 @@
+<div class="detail-overlay" (click)="closeDetail()">
+    <div class="detail-modal" (click)="$event.stopPropagation()">
+        <button class="close-btn" (click)="closeDetail()">✕</button>
+
+        <div class="detail-content">
+            <div class="detail-image">
+                <img [src]="book.cover" [alt]="book.title" class="book-image" />
+            </div>
+
+            <div class="detail-info">
+                <h2 class="detail-title">{{ book.title }}</h2>
+
+                <p class="detail-author">by <strong>{{ book.author }}</strong></p>
+
+                <div class="detail-rating">
+                    <span *ngFor="let star of getRatingStars(book.rating)" class="star">★</span>
+                    <span class="rating-value">{{ book.rating }} / 5</span>
+                </div>
+
+                <div class="book-metadata">
+                    <div class="metadata-item">
+                        <span class="label">ISBN:</span>
+                        <span class="value">{{ book.isbn }}</span>
+                    </div>
+                    <div class="metadata-item">
+                        <span class="label">Published:</span>
+                        <span class="value">{{ book.year }}</span>
+                    </div>
+                    <div class="metadata-item">
+                        <span class="label">Pages:</span>
+                        <span class="value">{{ book.pages }}</span>
+                    </div>
+                </div>
+
+                <div class="description">
+                    <h3>Description</h3>
+                    <p>{{ book.description }}</p>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-primary">Add to Library</button>
+                    <button class="btn btn-secondary">Download</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
